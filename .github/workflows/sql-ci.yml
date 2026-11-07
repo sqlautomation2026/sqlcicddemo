@@ -18,6 +18,8 @@ jobs:
       - name: Check SQL Script Exists
         run: |
           echo "Checking SQL scripts..."
+          pwd
+          find . -type f
           test -f script/create-table.sql
           echo "SQL script found successfully!"
 
