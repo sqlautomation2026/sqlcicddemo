@@ -18,7 +18,7 @@ jobs:
       - name: Check SQL Script Exists
         run: |
           echo "Checking SQL scripts..."
-          test -f scripts/create-table.sql
+          test -f script/create-table.sql
           echo "SQL script found successfully!"
 
       - name: Validate SQL Script Content
