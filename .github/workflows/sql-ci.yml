@@ -1,0 +1,31 @@
+name: SQL Server CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sql-validation:
+    name: Validate SQL Scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check SQL Script Exists
+        run: |
+          echo "Checking SQL scripts..."
+          test -f scripts/create-table.sql
+          echo "SQL script found successfully!"
+
+      - name: Validate SQL Script Content
+        run: |
+          echo "Checking CREATE TABLE statement..."
+          grep -qi "CREATE TABLE Employees" scripts/create-table.sql
+          echo "Basic SQL content check passed!"
+
+      - name: CI Pipeline Completed
+        run: echo "SQL CI Pipeline completed successfully!"
