@@ -20,13 +20,13 @@ jobs:
           echo "Checking SQL scripts..."
           pwd
           find . -type f
-          test -f script/create-table.sql
+          test -f script/createtable.sql
           echo "SQL script found successfully!"
 
       - name: Validate SQL Script Content
         run: |
           echo "Checking CREATE TABLE statement..."
-          grep -qi "CREATE TABLE Employees" scripts/create-table.sql
+          grep -qi "CREATE TABLE Employees" scripts/createtable.sql
           echo "Basic SQL content check passed!"
 
       - name: CI Pipeline Completed
